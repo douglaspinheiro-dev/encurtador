@@ -9,7 +9,6 @@ module.exports = {
       user:     process.env.user,
       password: process.env.password
     },
-    connection: process.env.PG_CONNECTION_STRING,
     searchPath: ['knex', 'public'],
     pool: {
       min: 2,
