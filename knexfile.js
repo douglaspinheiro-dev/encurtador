@@ -3,12 +3,14 @@
 require('dotenv').config()
 
 module.exports = {
-    client: 'mysql',
+    client: 'pg',
     connection: {
       database: process.env.database,
       user:     process.env.user,
       password: process.env.password
     },
+    connection: process.env.PG_CONNECTION_STRING,
+    searchPath: ['knex', 'public'],
     pool: {
       min: 2,
       max: 10
