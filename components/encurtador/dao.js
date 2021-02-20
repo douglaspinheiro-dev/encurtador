@@ -11,9 +11,10 @@ const dao = {
             .insert({url, expiration, newUrl})
             .returning('id')
     },
-    selecionar: (url) => db(tabela)
+
+    selecionar: newUrl => db(tabela)
         .select()
-        .where({url})
+        .where({ newUrl })
 }
 
 module.exports = dao
