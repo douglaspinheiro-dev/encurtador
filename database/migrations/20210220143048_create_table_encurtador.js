@@ -3,7 +3,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('urls', table => {
         table.increments('id').primary()
         table.string('url')
-        table.string('newUrl')
+        table.string('newUrl').unique()
         table.datetime('expiration')
     })
 };
