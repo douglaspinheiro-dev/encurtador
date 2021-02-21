@@ -5,7 +5,7 @@ module.exports = {
         const encurtador = new Encurtador(body.url)
 
         encurtador.salvar()
-            .then(newUrl => res.json({ newUrl }))
+            .then(newUrl => res.status(201).json({ newUrl }))
             .catch(next)
     },
 
