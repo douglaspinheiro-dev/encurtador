@@ -1,7 +1,7 @@
 const dao = require('./dao')
 const validate = require('validate.js')
 const uuid = require('../uuidAlphanumeric')
-const dayJs = require('dayJs')
+const dayjs = require('dayjs')
 const schema = {
     url: {
         url: {
@@ -21,7 +21,7 @@ class Encurtador {
         this.id = null,
         this.url = url || null,
         this.newUrl = uuid(5,10),
-        this.expiration = dayJs().add(7, 'day')
+        this.expiration = dayjs().add(7, 'day')
         // a URL possui prazo de validade (você poderá escolher quanto tempo)
     }
 
@@ -43,7 +43,7 @@ class Encurtador {
             .then(registros => {
                 if (registros.length === 0) return null
                 let registro = registros[0]
-                if (dayJs().isAfter(dayJs(registro.expiration))) return Promise.reject({
+                if (dayjs().isAfter(dayjs(registro.expiration))) return Promise.reject({
                     status:498,
                     message: 'Url Expirada',
                     erros
