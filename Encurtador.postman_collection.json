@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "312fcca7-afc5-4bec-aaa6-7f2a7cdad36a",
+		"name": "Encurtador",
+		"description": "# Introduction\nRecebe uma url qualquer e retorna uma nova url encurtada\n\n# Succes Codes\n200\n\n# Error Codes\n404, 498\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Encurtar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"url\": \"http://wisereducacao.com\" }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/encurtador",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"encurtador"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Selecionar",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/qyFVpe9",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"qyFVpe9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rota Não Encontrada",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"url\": \"http://wisereducacao.com\" }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/abcdefgh",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"abcdefgh"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8081"
+		}
+	]
+}
