@@ -1,7 +1,7 @@
 const dao = require('./dao')
 const validate = require('validate.js')
 const uuid = require('../uuidAlphanumeric')
-
+const dayJs = require('dayJs')
 const schema = {
     url: {
         url: {
@@ -9,18 +9,20 @@ const schema = {
             allowLocal: true,
             allowDataUrl: true
         }
-    }
+    },
+    newUrl: {
+        presence: true
+    },
+
 }
-// a URL possui prazo de validade (você poderá escolher quanto tempo)
-let expDay = new Date()
-expDay.setDate(expDay.getDate() + 7)
 
 class Encurtador {
     constructor(url) {
         this.id = null,
         this.url = url || null,
         this.newUrl = uuid(5,10),
-        this.expiration = expDay
+        this.expiration = dayJs().add(7, 'day')
+        // a URL possui prazo de validade (você poderá escolher quanto tempo)
     }
 
     salvar () {
@@ -37,33 +39,19 @@ class Encurtador {
     }
 
     selecionar (newUrl) {
-        let erros = validate(this, schema)
-        if (erros){
-            return Promise.reject({
-                status:400,
-                message: 'foram encontrados erros na validação',
-                erros
-            })
-        }
         return dao.selecionar(newUrl)
             .then(registros => {
                 if (registros.length === 0) return null
-                let url = registros[0]
-                let today = new Date()
-                let urlExpDay = new Date(url.expiration)
-                let urlExpirada = today < urlExpDay
-                if (urlExpirada) return Promise.reject({
-                    status:400,
+                let registro = registros[0]
+                if (dayJs().isAfter(dayJs(registro.expiration))) return Promise.reject({
+                    status:498,
                     message: 'Url Expirada',
                     erros
                 })
-                return url
+                return registro.url
             })
     }
 
-    getExpiration() {
-
-    }
 }
 
 module.exports = Encurtador
