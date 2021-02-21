@@ -35,7 +35,7 @@ class Encurtador {
             })
         }
         return dao.salvar(this)
-            .then(() => `${process.env.url}/${this.newUrl}`)
+            .then(() => `${process.env.URL}/${this.newUrl}`)
     }
 
     selecionar (newUrl) {

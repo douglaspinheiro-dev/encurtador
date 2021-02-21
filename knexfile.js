@@ -5,10 +5,11 @@ require('dotenv').config()
 module.exports = {
     client: 'pg',
     connection: {
-      database: process.env.database,
-      user:     process.env.user,
-      password: process.env.password
+      database: process.env.DATABASE,
+      user:     process.env.USER,
+      password: process.env.PASSWORD
     },
+    // connection: process.env.URI,
     searchPath: ['knex', 'public'],
     pool: {
       min: 2,
