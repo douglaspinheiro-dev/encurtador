@@ -23,12 +23,7 @@ e ao receber uma URL encurtada, será feito o redirecionamento para a URL salva 
 
 
 O endpoint POST http://localhost:8081/encurtador salva a URL recebida no body: { url: "http://wisereducacao.com"; }
-e retorna a URL encurtada: { url: "http://wisereducacao.com"; }
-
-
-O sistema recebe uma chamada para encurtar a URL http://wisereducacao.com e retorna
-o seguinte json: { newUrl: "http://localhost:8081/abc123ab"; }
-
+ e retorna o seguinte json: { newUrl: "http://localhost:8081/abc123ab"; }
 
 ### Exemplo ao redirecionar
 
