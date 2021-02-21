@@ -8,8 +8,7 @@ module.exports = {
       host: process.env.HOST,
       database: process.env.DATABASE,
       user:     process.env.USER,
-      password: process.env.PASSWORD,
-      ssl: true
+      password: process.env.PASSWORD
     },
     // connection: process.env.DATABASE_URL,
     searchPath: ['knex', 'public'],
