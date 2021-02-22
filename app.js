@@ -5,7 +5,7 @@ var logger = require('morgan');
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-var indexRouter = require('./routes/index');
+const rotas = require('./routes/index')
 
 var app = express();
 
@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.use('/', indexRouter);
+rotas.forEach(rota => app.use(rota.caminho, rota.roteador))
 
 
 app.use(function(err, req, res, next) {
