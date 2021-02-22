@@ -3,9 +3,9 @@ Challenge Encurtador - Backend
 
 ## Instalação
 
-> knex migrate:latest
->
 > npm install
+>
+> knex migrate:latest
 >
 > npm start
 
