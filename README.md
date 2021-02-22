@@ -49,7 +49,7 @@ Inicie o Servidor
 ## Autor
 
 Douglas Pinheiro
-> [email@douglaspinheiro.dev](email@douglaspinheiro.dev)
+> [email@douglaspinheiro.dev](mailto:email@douglaspinheiro.dev)
 >
 > [Linkedin](https://www.linkedin.com/in/douglaspinheiro/)
 
