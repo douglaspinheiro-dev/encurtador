@@ -38,7 +38,7 @@ Importe a collection da api para o POSTMAN,
 É necessário renomear o arquivo env.example para .env, e salvar as configuracoes do POSTGRES
 
 Instale as dependencias
-> npm i install
+> npm install
 
 Execute as migrações do Banco, com o Knex
 > knex migrate:latest
