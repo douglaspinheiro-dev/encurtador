@@ -34,8 +34,14 @@ class Encurtador {
                 erros
             })
         }
-        return dao.salvar(this)
-            .then(() => `${process.env.URL}/${this.newUrl}`)
+
+        return this.selecionar(this.url)
+            .then(registros => {
+                if (registros.length === 1) this.newUrl = uuid(5,10)
+                return dao.salvar(this)
+                    .then(() => `${process.env.URL}/${this.newUrl}`)
+
+            })
     }
 
     selecionar (newUrl) {
